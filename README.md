@@ -3,7 +3,7 @@ Turducken
 _Decadently form over function._ 
 
 A go "web server" that is compiled into webassmebly, 
-loaded directly into the browser, and serves content in Vue.
+loaded directly into the browser, and serves content in templates.
 
 Optionally it can be loaded into a mobile app to achieve complete lolwut status.
 
@@ -21,7 +21,25 @@ Optionally it can be loaded into a mobile app to achieve complete lolwut status.
  + (OSX) open turducken.html
  
  
+ Notes
  
+ + My hello world wasm file was 1.3mb
+ + Libraries don't always understand being compiled into webasm
+    + packr v2 uses a director walk library that didn't compile
+ + Adding packr with a tiny director => 8.6 mb
+ + 
+ 
+ 
+*Bonus Notes*
+
+Using go modules
+
+1) go mod init
+2) go mod vendor
+3) go mod tidy <-- when you want a different version/etc 
+
+done
+
  
  
  

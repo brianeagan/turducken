@@ -2,18 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>I don't care for one</title>
 </head>
 <body>
     <script src="wasm_exec.js"></script>
     <script>
-        if (!WebAssembly.instantiateStreaming) { // polyfill
-            WebAssembly.instantiateStreaming = async (resp, importObject) => {
-                const source = await (await resp).arrayBuffer();
-                return await WebAssembly.instantiate(source, importObject);
-            };
-        }
-
         const go = new Go();
         let mod, inst;
         WebAssembly.instantiateStreaming(fetch("bin/turducken.wasm"), go.importObject).then((result) => {
