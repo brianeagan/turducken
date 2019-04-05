@@ -34,6 +34,8 @@ func findBalance(address string) ( string ){
 		return "err"
 	}
 	return string(jsonReq)
+	//I think you have to proxy requests like this.
+	//[future brian] Yep
 	//request, err := http.NewRequest("POST", EthNode, bytes.NewBuffer(jsonReq) )
 	//spew.Dump(request)
 
@@ -58,6 +60,8 @@ func main(){
 	//register the callback to a button push js function
 	js.Global().Get("document").Call("getElementById", "runButton").
 		Call("addEventListener", "click", callBack)
+
+
 
 	c := make(chan struct{}, 0)
 	<- c

@@ -7,20 +7,16 @@
 <body>
     <script src="wasm_exec.js"></script>
     <script>
-        // const go = new Go();
-        // let mod, inst;
-        // WebAssembly.instantiateStreaming(fetch("bin/turducken.wasm"), go.importObject).then((result) => {
-        //     mod = result.module;
-        //     inst = result.instance;
-        // }).catch((err) => {
-        //     console.error(err);
-        // });
-        //
-        // async function run() {
-        //     console.clear();
-        //     await go.run(inst);
-        //     inst = await WebAssembly.instantiate(mod, go.importObject); // reset instance
-        // }
+        function ajaxProxy(method, url, payload) {
+            var req = new XMLHttpRequest();
+            req.addEventListener("load", ajaxDone);
+            req.open(method, url);
+            req.send();
+        }
+        function ajaxDone(response) {
+            console.log(response);
+
+        }
 
         const go = new Go();
         let mod, inst;

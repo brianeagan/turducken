@@ -13,9 +13,11 @@ Check out webassembly, and see how it may be useful and where it utterly falls d
  + Tested in Chrome, use Chrome
  
  
- Step 2 - build the wasm
+ Step 2 - build the wasm and fire it up in a browser
  + make build
- + (OSX) open turducken.html
+ + make serve
+ + Apple-T
+ + make open
  
  
  Notes
@@ -25,9 +27,10 @@ Check out webassembly, and see how it may be useful and where it utterly falls d
     + packr v2 uses a director walk library that didn't compile
  + Adding packr with a tiny directory => 8.6 mb
  + Couldn't actually get into the virtualfs, eg. there is no stat function availible
- + expect a lot of panics 
+ + expect a lot of panics
+ + Operating environment is pretty much what you can push/pull out of JS. Like a little magic box.
  + Changing scope to see if I can do something with my remaining time
- + 
+ + Yay, basic demo achieved without ignoring my other job duties. 
  
  Would be fun to follow up on
  + minimizing size (kinda vitally important) Gzip and TinyGo
