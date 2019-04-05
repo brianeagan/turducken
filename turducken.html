@@ -7,22 +7,33 @@
 <body>
     <script src="wasm_exec.js"></script>
     <script>
+        // const go = new Go();
+        // let mod, inst;
+        // WebAssembly.instantiateStreaming(fetch("bin/turducken.wasm"), go.importObject).then((result) => {
+        //     mod = result.module;
+        //     inst = result.instance;
+        // }).catch((err) => {
+        //     console.error(err);
+        // });
+        //
+        // async function run() {
+        //     console.clear();
+        //     await go.run(inst);
+        //     inst = await WebAssembly.instantiate(mod, go.importObject); // reset instance
+        // }
+
         const go = new Go();
         let mod, inst;
-        WebAssembly.instantiateStreaming(fetch("bin/turducken.wasm"), go.importObject).then((result) => {
-            mod = result.module;
-            inst = result.instance;
-            document.getElementById("runButton").disabled = false;
-        }).catch((err) => {
-            console.error(err);
-        });
-
-        async function run() {
-            console.clear();
-            await go.run(inst);
-            inst = await WebAssembly.instantiate(mod, go.importObject); // reset instance
-        }
+        WebAssembly.instantiateStreaming(fetch("bin/turducken.wasm"), go.importObject).then(
+            async result => {
+                mod = result.module;
+                inst = result.instance;
+                await go.run(inst);
+            }
+        );
     </script>
-    <button onClick="run();" id="runButton" disabled>Run</button>
+    <input type="text" id="ethAddr" />
+    <button id="runButton" >DO MASSIVE CALCULATION NOW</button>
+    <div id="output"><pre>nadda yet</pre></div>
 </body>
 </html>

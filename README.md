@@ -2,10 +2,7 @@ Turducken
 
 _Decadently form over function._ 
 
-A go "web server" that is compiled into webassmebly, 
-loaded directly into the browser, and serves content in templates.
-
-Optionally it can be loaded into a mobile app to achieve complete lolwut status.
+Check out webassembly, and see how it may be useful and where it utterly falls down
 
  Step 1 - Make the environment
  
@@ -26,8 +23,16 @@ Optionally it can be loaded into a mobile app to achieve complete lolwut status.
  + My hello world wasm file was 1.3mb
  + Libraries don't always understand being compiled into webasm
     + packr v2 uses a director walk library that didn't compile
- + Adding packr with a tiny director => 8.6 mb
+ + Adding packr with a tiny directory => 8.6 mb
+ + Couldn't actually get into the virtualfs, eg. there is no stat function availible
+ + expect a lot of panics 
+ + Changing scope to see if I can do something with my remaining time
  + 
+ 
+ Would be fun to follow up on
+ + minimizing size (kinda vitally important) Gzip and TinyGo
+ + checking out https://github.com/vugu/vugu (VueJS like)
+ 
  
  
 *Bonus Notes*
