@@ -28,8 +28,6 @@ func findBalance(address string) ( string ){
 		Params: params,
 		Id: 1,
 	}
-	spew.Dump(rpcReq)
-
 	jsonReq, err := json.Marshal(rpcReq)
 	if err != nil {
 		println(err)
@@ -51,17 +49,17 @@ func main(){
 	callBack := js.FuncOf(func(this js.Value, args []js.Value) interface{} {
 		addr := js.Global().Get("document").Call("getElementById", "ethAddr").Get("value").String()
 		loljson := findBalance(addr)
-		js.Global().Get("document").Call("getElementById", "output").Set("value", loljson)
+		js.Global().Get("document").Call("getElementById", "output").Set("innerText",loljson)
+		spew.Dump(loljson)
+		spew.Dump(js.Global().Get("document").Call("getElementById", "output").Get("innerText").String())
 		return nil
 	})
 
 	//register the callback to a button push js function
-
 	js.Global().Get("document").Call("getElementById", "runButton").
 		Call("addEventListener", "click", callBack)
 
 	c := make(chan struct{}, 0)
-	spew.Dump("I'm a turtle, hi.")
 	<- c
 
 
